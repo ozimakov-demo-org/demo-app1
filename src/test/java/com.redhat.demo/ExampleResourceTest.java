@@ -15,7 +15,13 @@ public class ExampleResourceTest {
                 .when().get("/hello")
                 .then()
                 .statusCode(200)
-                .body(is("Hello RESTEasy"));
+                .body(is("Hello World"));
+
+        given()
+                .when().get("/hello?name={name}", "Test")
+                .then()
+                .statusCode(200)
+                .body(is("Hello Test"));
     }
 
 }
